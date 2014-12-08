@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Preaching Assistant</title>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dijit/form/Form",
+  "dijit/layout/TabContainer",
+  "dijit/layout/ContentPane",
+  "dijit/layout/AccordionContainer",
+  "dijit/form/TextBox",
+  "dijit/form/Textarea",
+  "dijit/form/Button",
+  "dijit/form/FilteringSelect",
+  "dojox/io/xhrScriptPlugin",
+  "dojo/data/ItemFileReadStore",
+  "gridx/Grid",
+  "gridx/core/model/cache/Async",
+  "dojox/data/CsvStore",
+  "dijit/Calendar",
+  "dijit/form/DateTextBox",
+  "dijit/form/CheckBox"
+]);
+</script>
+<link rel="stylesheet" href="lib/dojo/dojox/grid/resources/Grid.css">
+<link rel="stylesheet" href="lib/dojo/dojox/grid/resources/claroGrid.css">
+<link rel="stylesheet" href="lib/dojox/grid/enhanced/resources/claro/EnhancedGrid.css">
+<link rel="stylesheet" href="lib/dojox/grid/enhanced/resources/EnhancedGrid_rtl.css">
+<link rel="stylesheet" href="app.css">
+<style>@import "themes/claro/document.css";@import "themes/claro/claro.css";@import "lib/dojo/gridx/resources/claro/Gridx.css";@import "lib/dojo/gridx/resources/claro/Gridx_rtl.css";
+</style>
+<script type="text/javascript" src="app.js"></script>
+</head>
+<body data-maq-flow-layout="true" data-maq-comptype="desktop" class="claro" data-maq-ws="collapse" id="loading-mask" data-maq-appstates="{}">
+<div style="display: none" id="hideAll">&nbsp;</div>
+<script type="text/javascript">
+   document.getElementById("hideAll").style.display = "block";
+ </script> 
+<span data-dojo-type="dijit/layout/TabContainer" id="tabcontainer" tabStrip="false" persist="false" controllerWidget="dijit.layout.TabController" style="border-width: 1px; min-width: 1em; min-height: 1em; height: 637px; width: 817px; margin-right: 10px; left: 10px; margin-left: 10px;">
+<div data-dojo-type="dijit/layout/ContentPane" id="program" title="PROGRAM" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" selected="true" closable="false">
+<span data-dojo-type="dijit/layout/AccordionContainer" id="programAccordian" duration="500" persist="false" style="min-width: 1em; min-height: 1em; height: 100%; width: 898px;">
+<div data-dojo-type="dijit/layout/ContentPane" id="programType" title="ADD PROGRAM TYPE" extractContent="false" preventCache="true" preload="false" refreshOnShow="false" doLayout="true" selected="true" closable="false">
+  <h1 id="addProgramTypeHeader" class="typeHeader">
+    ADD NEW PROGRAM TYPE</h1>
+  <div id="addNewProgramType">
+    <p id="PTprogramTypelabel">
+      Program Type :</p>
+    <p id="PTprogramDescriptionLabel">
+      Program Description :</p>
+    <input type="text" data-dojo-type="dijit/form/TextBox" id="PTProgramTypeTextBox" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" selectOnClick="false" ></input>
+    <textarea type="text" data-dojo-type="dijit/form/TextBox" id="PTProgramDescriptionTextArea" intermediateChanges="false" rows="3" trim="false" uppercase="false" lowercase="false" propercase="false" ></textarea>
+    <input type="button" data-dojo-type="dijit/form/Button" id="PTProgramTypeSubmit" intermediateChanges="false" label="Submit" iconClass="dijitNoIcon" class="PTProgramTypeSubmitClass"></input>
+  </div>
+  <div id="programTypeResponse" style="height: 60px; padding-top: 20px;">
+    <p id="programTypeSuccessResponse" class="successResponse"></p>
+    <p id="programTypeErrorResponse" class="errorResponse"></p>
+  </div>
+</div>
+<div data-dojo-type="dijit/layout/ContentPane" id="programMaster" title="ADD PROGRAM MASTER" extractContent="false" preventCache="true" preload="false" refreshOnShow="false" doLayout="true" selected="true" closable="false">
+  <div id="addProgramMaster" class="typeHeader">
+    <h1 id="addProgramMasterHeader" class="typeHeader">
+      ADD NEW PROGRAM MASTER</h1>
+    <p id="PMprogramTypelabel">
+      Program Type :</p>
+    <p id="PMProgramNameLabel">
+      Program Name :</p>
+    <p id="PMProgramDecriptionLabel">
+      Program Description :</p>
+    <p id="PMProgramIntervalLabel" >
+      Program Interval :</p>
+    <input id="PMProgramTypeSelect" ></input>
+    <input type="text" data-dojo-type="dijit/form/TextBox" id="PMProgramNameTextBox" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" selectOnClick="false" ></input>
+    <textarea type="text" data-dojo-type="dijit/form/TextBox" id="PMProgramDescriptionTextArea" intermediateChanges="false" rows="3" trim="false" uppercase="false" lowercase="false" propercase="false" ></textarea>
+    <input type="text" data-dojo-type="dijit/form/TextBox" id="PMProgramIntervalTextBox" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" selectOnClick="false"></input>
+    <p id="PMPrimaryMentorLabel" >
+      Primary Mentor :</p>
+    <input id="PMPrimaryMentorSelect" readonly="true"></input>
+    <p id="PMassistantMentorLabel">
+      Assistant Mentor :</p>
+    <input id="PMassistanMentorSelect" readonly="true"></input>
+    <input type="button" data-dojo-type="dijit/form/Button" id="PTProgramMasterSubmit" class="PTProgramMasterSubmitClass" intermediateChanges="false" label="Submit" iconClass="dijitNoIcon" ></input>
+    </div>
+  <div id="programMasterResponse" style="height: 63px; position: absolute; z-index: 900; width: 768px;">
+    <p id="programMasterErrorResponse" class="errorResponse"></p>
+    <p id="programMasterSuccessResponse" class="successResponse"></p>
+  </div>
+</div>
+<div data-dojo-type="dijit/layout/ContentPane" id="programParticipation" title="ENROLL DEVOTEE" extractContent="false" preventCache="false" preload="false" refreshOnShow="true" doLayout="true" selected="true" closable="false">
+  <div id="enrollDevotee">
+    <h1 id="enrollDevoteeHeader" class="typeHeader">
+      ENROLL DEVOTEE TO PROGRAM</h1>
+    <p id="PPDevoteeSearchlabel">
+      Search Devotee by Name or Mobile:</p>
+    <input type="text" data-dojo-type="dijit/form/TextBox" id="PPDevoteeNameTextBox" intermediateChanges="true" trim="false" uppercase="false" lowercase="false" propercase="false" selectOnClick="false" placeHolder="search" onchange="query_store(this.value)"></input>
+    <div id="enrollProgramGrid" style="position: absolute; z-index: 900; height: 111px; width: 771px; left: 9px; top: 132px;"></div>
+    <input id="PPProgramNameSelect" readonly="true"></input>
+    <p id="PPProgramNamelabel">
+      Program Name :</p>
+    <input type="text" data-dojo-type="dijit/form/DateTextBox" id="PPEnrolementDateSelect" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" invalidMessage="$_unset_$"></input>
+    <p id="PPEnrolementDatelabel" >
+      Enrollment Date :</p>
+    <input type="button" data-dojo-type="dijit/form/Button" id="PPEnrollDevoteeSubmit" class="PPEnrollDevoteeSubmitClass" intermediateChanges="false" label="Submit" iconClass="dijitNoIcon" style="position: absolute; z-index: 900; left: 180px; top: 346.6875px;"></input>
+  </div>
+  <div id="enrollDevoteeResponse" style="position: absolute; z-index: 900; width: 767px; height: 86px; left: 9px; top: 384.65625px;">
+    <p id="enrollDevoteeSucessResponse" class="successResponse"></p>
+    <p id="enrollDevoteeErrorResponse" class="errorResponse"></p>
+  </div>
+</div>
+<div data-dojo-type="dijit/layout/ContentPane" id="programAttendance" title="PROGRAM ATTENDANCE" extractContent="false" preventCache="true" preload="false" refreshOnShow="true" doLayout="true" selected="true" closable="false">
+ <div style="height: 436px;">
+   <h1 id="programAttendanceHeader" class="typeHeader">
+      PROGRAM ATTENDANCE</h1>
+   <p id="PAProgramNamelabel" >
+      Program Name :</p>
+   <div id="programGrid" style="position: absolute; z-index: 900; width: 751px; left: 12.5px; top: 119px; height: 137px;"></div>
+   <p id="PAProgramDatelabel">
+      Program Date :</p>
+   <input id="PAProgramNameSelect"></input>
+   <input type="text" data-dojo-type="dijit/form/DateTextBox" id="PAprogramDateSelect" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" invalidMessage="$_unset_$"></input>
+   <input type="button" data-dojo-type="dijit/form/Button" id="PAProgramAttendanceSubmit" class="PAProgramAttendanceSubmitClass" intermediateChanges="false" label="Submit" iconClass="dijitNoIcon"></input>
+   <div id="programAttendanceResponse" style="position: absolute; z-index: 900; width: 751px; left: 12.5px; top: 367px; height: 85px;">
+     <p id="programAttendanceSuccessResponse" class="successResponse"></p>
+     <p id="programAttendanceErrorResponse" class="errorResponse"></p>
+   </div>
+ </div>
+</div>
+</span></div>
+ <div data-dojo-type="dijit/layout/ContentPane" id="devotee" title="DEVOTEE" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" closable="false"><span data-dojo-type="dijit/layout/AccordionContainer" id="devoteeAccordian" duration="200" persist="false" style="min-width: 1em; min-height: 1em; width: 100%; height: 100%;"><div data-dojo-type="dijit/layout/ContentPane" title="ADD NEW DEVOTEE" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" selected="true" closable="false" doLayout="false">
+ <div id="addNewDevotee" style="height: 522px;">
+   <h1 id="addNewDevoteeHeader" class="typeHeader">     
+     ADD NEW DEVOTEE</h1>
+   <p id="DIDevoteeNameLabel">
+     Devotee Name :</p>
+   <p id="DIDevoteeDobLabel" >
+     Date of birth :</p>
+   <p id="DIDevoteeInitiatedNameLabel">
+     Initiated Name :</p>
+   <p id="DIDevoteeMobileNoLabel" >
+     Mobile No# :</p>
+   <p id="DIDevoteeAltMobileNoLabel" >
+     Alternate No# :</p>
+   <p id="DIDevoteeIntroDateLabel" >
+     Introduction Date :</p>
+   <p id="DIDevoteeAddressLabel" >
+     Address/Area:</p>
+   <p id="DIDevoteeSikshaLevelLabel" >
+     Siksha Level:</p>
+   <input type="text" data-dojo-type="dijit/form/TextBox" id="DIDevoteeNameTextBox" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" selectOnClick="false" ></input>
+   <input type="text" data-dojo-type="dijit/form/TextBox" id="DIDevoteeInitiatedNameTextBox" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" selectOnClick="false" ></input>
+   <input type="text" data-dojo-type="dijit/form/DateTextBox" id="DIDevoteeDobSelect" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" invalidMessage="$_unset_$" ></input>
+   <input type="text" data-dojo-type="dijit/form/TextBox" id="DIDevoteeMobileNoTextBox" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" selectOnClick="false" ></input>
+   <input type="text" data-dojo-type="dijit/form/TextBox" id="DIDevoteeAltMobileNoTextBox" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" selectOnClick="false" ></input>
+   <input type="text" data-dojo-type="dijit/form/TextBox" id="DIDevoteeAddressTextArea" intermediateChanges="false" rows="3" trim="false" uppercase="false" lowercase="false" propercase="false" ></input>
+   <input type="text" data-dojo-type="dijit/form/DateTextBox" id="DIDevoteeIntroDateSelect" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" invalidMessage="$_unset_$"></input>
+   <input type="text" data-dojo-type="dijit/form/TextBox" id="DIDevoteeEmailIdTextArea" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" selectOnClick="false"></input>
+   <input id="DIDevoteeSikshaLevelSelect" ></input>
+   <p id="isMentorLabel" >
+   Select if Devotee is a Mentor.</p>
+   <input type="checkbox" data-dojo-type="dijit/form/CheckBox" id="isDevoteeMentorCheckBox" class="isDevoteeMentorCheckBoxClass" intermediateChanges="false" iconClass="dijitNoIcon"></input>
+   <input type="button" data-dojo-type="dijit/form/Button" id="DIDevoteeAddSubmit" class="DIDevoteeAddSubmitClass" intermediateChanges="false" label="Submit" iconClass="dijitNoIcon"></input>
+   <p id="DIDevoteeEmailIdLabel" >
+     
+   Email ID :</p>
+   <div id="devoteeAddResponse" style="height: 62px; width: 775px; position: absolute; z-index: 900; left: 8px; top: 481px;">
+  <p id="devoteeAddErrorResponse" class="errorResponse"></p>
+    <p id="devoteeAddSuccessResponse" class="successResponse">
+   </p>
+  </div>
+   </div>
+</div>
+</span></div>
+ <div data-dojo-type="dijit/layout/ContentPane" id="sms" title="SMS" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" closable="false">
+<span data-dojo-type="dijit/layout/AccordionContainer" id="smsAccordian" duration="200" persist="false" style="min-width: 1em; min-height: 1em; width: 100%; height: 100%;"><div data-dojo-type="dijit/layout/ContentPane" title="SEND SMS" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" selected="true" closable="false" doLayout="false">
+    <div id="sendSMS" style="height: 522px;">
+      <h1 id="sendSMSHeader" style="font-size: 14pt; color: #63c2df;">
+        SEND SMS</h1>
+      <p id="smsProgramNameLabel" style="color: #63c2df; font-size: 12pt; height: 4px; margin-top: auto; width: 120px; padding-right: 10px; padding-top: 20px; position: relative;">
+        Program Name :</p>
+      <div id="smsGrid" style="position: absolute; z-index: 900; width: 751px; left: 12.5px; top: 119px; height: 137px;"></div>
+      <input id="smsProgramNameSelect" readonly="true" style="position: absolute; z-index: 900; top: 81.21875px; width: auto; left: 180px;"></input>
+      <p id="smsTextLable" style="color: #63c2df; font-size: 12pt; height: 4px; margin-top: auto; width: 120px; padding-right: 10px; padding-top: 20px; position: absolute; z-index: 900; left: 12.5px; top: 309.9px;">
+        SMS Text :</p>
+      <input type="button" data-dojo-type="dijit/form/Button" intermediateChanges="false" label="Submit" iconClass="dijitNoIcon" style="position: absolute; z-index: 900; top: 422px; left: 180px;"></input>
+      <div style="position: absolute; z-index: 900; width: 751px; height: 85px; left: 8px; top: 455.6666717529297px;">
+      <p id="sendSMSSuccessResponse" style="color: #6bec20; font-size: 20px;"></p>
+        <p id="sendSMSErrorResponse" style="font-size: 20px; position: absolute; z-index: 900; height: 10px; width: 500px; color: #f31729; left: 0px; top: 7.5px;"></p>
+      </div>
+      <input type="text" data-dojo-type="dijit/form/TextBox" id="smsTextArea" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" selectOnClick="false" style="position: absolute; z-index: 900; left: 180px; top: 325px; height: 60px; width: 250px;"></input>
+    </div>
+  </div>
+  </span></div>
+ </span>
+ </body>
+
+</html>

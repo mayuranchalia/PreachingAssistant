@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:jaxws="http://cxf.apache.org/jaxws"
+      xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+      xmlns:cxf="http://cxf.apache.org/core"
+      xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+         http://cxf.apache.org/jaxws
+         http://cxf.apache.org/schemas/jaxws.xsd
+         http://cxf.apache.org/jaxrs
+         http://cxf.apache.org/schemas/jaxrs.xsd">
+
+  <import resource="classpath:META-INF/cxf/cxf.xml" />
+  <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+<!--   <import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml" /> -->
+  <jaxrs:server id="services" address="/">
+    <jaxrs:serviceBeans>
+	  <ref bean="hello" />
+	 <ref bean="jaxbJSONProvider"/>
+	 <ref bean="program" />
+	 <ref bean="siksha" />
+	 <ref bean="devotee" />
+	  <ref bean="sms" />
+    </jaxrs:serviceBeans>
+  </jaxrs:server>
+  <bean id="hello" class="com.temple.service.HelloService" />
+  <bean id="jaxbJSONProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider"/>
+    <bean id="program" class="com.temple.service.ProgramService"/>
+    <bean id="siksha" class="com.temple.service.SikshaLevelService"/>
+    <bean id="devotee" class="com.temple.service.DevoteeService"/>
+    <bean id="sms" class="com.temple.service.SMSService"/>
+  </beans>
+

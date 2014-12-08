@@ -1,0 +1,9 @@
+[
+					{ col1: "normal", col2: false, col3: "new"},
+					{ col1: "important", col2: false, col3: "new"},
+					{ col1: "important", col2: false, col3: "read"},
+					{ col1: "note", col2: false, col3: "read"},
+					{ col1: "normal", col2: false, col3: "replied"},
+					{ col1: "important", col2: false, col3: "replied"},
+					{ col1: "note", col2: false, col3: "replied"}
+				]

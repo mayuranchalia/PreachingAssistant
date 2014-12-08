@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Realm className="org.apache.catalina.realm.JDBCRealm"
+		driverName="com.mysql.jdbc.Driver"
+		connectionURL="jdbc:mysql://localhost:3306/UsersDB?user=root&amp;password=ADmin123"
+		userTable="USERINFO" userNameCol="username" userCredCol="password"
+		userRoleTable="USERS_ROLES" roleNameCol="role" resourceName="UsersDB">
+	</Realm>
+
+	<Resource name="jdbc/UsersDB" auth="Container"
+		type="javax.sql.DataSource" 
+		username="root" 
+		password="ADmin123"
+		driverClassName="com.mysql.jdbc.Driver" 
+		url="jdbc:mysql://localhost:3306/TemplePreachingAssistant"
+		maxActive="15" 
+		maxIdle="3" />
+</Context>

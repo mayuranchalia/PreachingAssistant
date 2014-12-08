@@ -1,0 +1,14 @@
+<xmlapi>
+	<auth>
+		<apikey>f30eytu3h3003a75a037s8097m9r8e</apikey>
+	</auth>
+	<sendSMS>
+		<to>99XXXXXXXX,98XXXXXXXX</to>
+		<text>HELLO</text>
+		<msgid>CUSTOMID1,CUSTOMID2</msgid>
+		<dlrurl>http://test.dlrurl.com</dlrurl>
+	</sendSMS>
+	<schedule>DDMMYYhhmm</schedule>
+	<Unicode>N</Unicode>
+		<response>Y</response>
+</xmlapi>
