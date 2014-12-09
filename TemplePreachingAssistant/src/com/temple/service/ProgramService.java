@@ -12,7 +12,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONObject;
@@ -294,7 +293,6 @@ public class ProgramService {
 					+ IRepositoryEntityTypes.PROGRAM_PARTICIPATION
 					+ " (PPDevoteeID,PPProgramID,PPEnrolementDate,PPDevoteeName)"
 					+ " values(?,?,?,?)";
-			System.out.println(SQL);
 			try {
 				enrolement = TempleUtility.getSQLDateFromString(enrolementDate);
 			} catch (ParseException e) {
@@ -303,7 +301,6 @@ public class ProgramService {
 						.entity("Invalid date format provided for devotee enrolment date.")
 						.build();
 			}
-			System.out.println(programId+"  "+devoteeId+"  "+enrolement);
 			statement = repository.getPreparedStatement(SQL);
 			statement.setInt(1, devoteeId);
 			statement.setInt(2, programId);

@@ -3,14 +3,9 @@
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
-	<display-name>MaterialsManagement</display-name>
+	<display-name>Preaching Assistant</display-name>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>main.html</welcome-file>
 	</welcome-file-list>
 
 	<servlet>
@@ -40,13 +35,17 @@
 			<url-pattern>/services/*</url-pattern>
 			<url-pattern>/styles/*</url-pattern>
 			<url-pattern>/index.jsp/*</url-pattern>
+			<url-pattern>/main.html/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>administrator</role-name>
 		</auth-constraint>
 	</security-constraint>
 	<login-config>
-		<auth-method>BASIC</auth-method>
-		<realm-name>default</realm-name>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+                <form-login-page>/login.html</form-login-page>
+                <form-error-page>/authfailed.html</form-error-page>
+        </form-login-config>
 	</login-config>
 </web-app>

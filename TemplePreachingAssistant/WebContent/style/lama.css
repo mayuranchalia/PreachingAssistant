@@ -1,0 +1,243 @@
+
+body{
+	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+/* 	border:solid 2px #b7ddf2; */
+	border:0; 
+	/* background:#ebf4fb; */
+	/* background: #FFFFFF; */
+}
+.lama p, h1, form, button{
+	border:0;
+	margin:0; 
+	padding:0;
+	color: #63c2df;
+}
+
+.lama h3{
+	border:0; 
+	margin:0; 
+	padding:8px;
+	color: #039;
+	font-weight:bold;
+	text-align:center;
+}
+.lama h3.login {
+	border:0; 
+	margin:0; 
+	padding:8px;
+	color: #63c2df;
+	font-weight:normal;
+	text-align:justify;
+}
+.lama p.home {
+	border:0; 
+	margin:0; 
+	padding:8px;
+	color: #63c2df;
+	font-size: 16px;
+	font-weight:normal;
+	text-align:justify;
+}
+
+.lama {
+	border: 0;
+/* 	border:solid 2px #b7ddf2; */
+/* 	background:#ebf4fb; */
+	backgroud: #FFFFFF;
+}
+.lama h1 {
+	font-size:14px;
+	font-weight:bold;
+	margin-bottom:8px;
+	color: #63c2df;
+}
+.lama p{
+	font-size:14px;
+	color:#63c2df;
+	margin-bottom:20px;
+	padding-bottom:10px;
+}
+.lama label{
+	display:block;
+	font-weight:bold;
+	text-align:right;
+	width:140px;
+	float:left;
+	color: #63c2df;
+}
+.lama .small{
+	color:#669;
+	display:block;
+	font-size:11px;
+	font-weight:normal;
+	text-align:right;
+	width:140px;
+	color: #039;
+}
+.lama input{
+	float:none;
+	font-size:14px;
+	padding:4px 2px;
+	border:solid 1px #aacfe4;
+	width:200px;
+	margin:2px 0 20px 10px;
+	color: #039;
+}
+.lama select{
+	float:left;
+	font-size:14px;
+	padding:4px 2px;
+	border:solid 1px #aacfe4;
+	width:200px;
+	color: #039;
+	margin:2px 0 20px 10px;
+}
+.lama textarea{
+	float:left;
+	font-size:14px;
+	padding:4px 2px;
+	border:solid 1px #aacfe4;
+	width:200px;
+	color: #63c2df;
+	margin:2px 0 20px 10px;
+}
+.lama input[type="checkbox"]{
+    width:15px;
+    height:15px;
+}
+.lama button{
+	clear:both;
+	width:125px;
+	height:31px;
+	background:#b9c9fe; 
+	border:solid 1px #aabcfe;
+	text-align:center;
+	line-height:31px;
+	color:#63c2df;
+	font-size:14px;
+}
+
+.lama button.address{
+	clear:both;
+	width:125px;
+	height:31px;
+	background-color: #039;
+	color: #ffffff;
+	border:solid 1px #aabcfe;
+	text-align:center;
+	line-height:31px;
+	font-size:14px;
+}
+
+.lama button.address:hover{
+	clear:both;
+	width:125px;
+	height:31px;
+	background-color: #08088A;
+	color: #ffffff;
+	border:solid 1px #aabcfe;
+	text-align:center;
+	line-height:31px;
+	font-size:14px;
+}
+
+.lama button:hover{
+	clear:both;
+	width:125px;
+	height:31px;
+	background-color: #039;
+	color: #ffffff;
+	border:solid 1px #aabcfe;
+	text-align:center;
+	line-height:31px;
+	font-size:14px;
+}
+/*
+.lama table{
+	font-size: 14px;
+	text-align: left;
+	border-collapse: collapse;
+}
+.lama th
+{
+	font-size: 15px;
+	font-weight: normal;
+	padding: 8px;
+	background: #b9c9fe;
+	border-top: 4px solid #aabcfe;
+	border-bottom: 1px solid #fff;
+	color: #039;
+	text-align: center;
+}
+.lama td
+{
+	padding: 8px;
+	background: #e8edff; 
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	color: #669;
+}
+.lama tr:hover td
+{
+	background: #d0dafd;
+	color: #339;
+}
+.lama table.login{
+	table-layout: fixed;
+	font-size: 14px;
+	text-align: left;
+	border-collapse: collapse;
+}
+.lama td.login 
+{
+	padding: 8px;
+	background: #ffffff; 
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	color: #669;
+	width: 500px;
+}
+.lama tr.login:hover td.login
+{
+	background: #ffffff;
+	color: #339;
+}
+*/
+.lamaHeader{
+	font-family:sans-serif;
+	font-size:25px;
+	text-align:center;
+	/* background:#0099cc; */
+	color:#63c2df;
+	height:80px;
+	padding-top:30px;
+	font-weight:bold;
+}
+
+.lamaLogin{
+	border-style:groove;
+	border-width:thin;
+	border-radius:2em 2em 2em 2em;
+	-moz-border-radius:2em 2em 2em 2em;
+	font-family:sans-serif;
+	font-size:10pt;
+	width:470px;
+	height:auto;
+	/*margin-left:500px;
+	margin-top:150px;
+	*/
+	padding:1em 1em 1em 1em;
+	border-color:#d3d3d3;
+}
+
+.lamaLoginDivAlignment{
+	margin-left:500px;
+	margin-top:100px;
+}
+.lamaLoginHeader{
+	color:#64c2df;
+	font-weight:bold;
+	border-radius:1em 2em 2em 2em;
+	-moz-border-radius:1em 2em 2em 2em;
+}

@@ -1,0 +1,539 @@
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+#hideAll
+ {
+   position: fixed;
+   left: 0px; 
+   right: 0px; 
+   top: 0px; 
+   bottom: 0px; 
+   background-color: white;
+   z-index: 9999; /* Higher than anything else in the document */
+
+ }
+ 
+.displaytabs{
+	font-family:sans-serif;
+	font-size:5pt;
+	color:#039;
+}
+#tabcontainer {
+	border-width: 1px;
+	min-width: 1em;
+	min-height: 1em;
+	height: 637px;
+	width: 817px;
+	/* margin-right: 10px; */
+	left: 10px;
+	 margin: auto;
+	 /* background:#ebf4fb; */
+	/* margin-left: 10px; */
+}
+
+#programAccordian {
+	min-width: 1em;
+	min-height: 1em;
+	height: 100%;
+	width: 898px;
+	
+}
+
+h1.typeHeader {
+	font-size: 14pt;
+	color: #63c2df;
+}
+
+ #addNewProgramType {
+	height: 174px;
+	
+}
+
+#PTprogramTypelabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	width: 120px;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: relative;
+}
+
+#PTprogramDescriptionLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	padding-top: 20px;
+	width: 160px;
+	padding-right: 10px;
+	position: relative;
+}
+
+#widget_PTProgramTypeTextBox {
+	z-index: 900;
+	width: 200px;
+	height: 26px;
+	top: 73px;
+	left: 180px;
+	position: absolute;
+}
+
+#widget_PTProgramDescriptionTextArea {
+	width: 200px;
+	position: absolute;
+	z-index: 900;
+	top: 127px;
+	height: 60px;
+	left: 180px;
+}
+
+.PTProgramTypeSubmitClass {
+	position: absolute;
+	z-index: 900;
+	left: 180px;
+	top: 197px;
+}
+
+.successResponse {
+	color: #6bec20;
+	font-size: 20px;
+}
+
+.errorResponse {
+	font-size: 20px;
+	color: #e61527;
+}
+
+#PMprogramTypelabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	width: 120px;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: relative;
+}
+
+#PMProgramNameLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	width: 120px;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: relative;
+}
+
+#PMProgramDecriptionLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	padding-top: 20px;
+	width: 160px;
+	padding-right: 10px;
+	position: relative;
+}
+
+#PMProgramIntervalLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: relative;
+	width: 130px;
+}
+
+
+#widget_PMProgramNameTextBox {
+	width: 200px;
+	position: absolute;
+	z-index: 900;
+	height: 20px;
+	top: 124px;
+	left: 180px;
+}
+
+#widget_PMProgramDescriptionTextArea {
+	width: 200px;
+	top: 168px;
+	position: absolute;
+	z-index: 900;
+	height: 35px;
+	left: 180px;
+}
+
+#widget_PMProgramIntervalTextBox {
+	width: 200px;
+	height: 20px;
+	position: absolute;
+	z-index: 900;
+	left: 180px;
+	top: 220px;
+}
+
+#PMPrimaryMentorLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: relative;
+	width: 130px;
+}
+
+
+#PMassistantMentorLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: relative;
+	width: 130px;
+}
+
+
+.PTProgramMasterSubmitClass {
+	position: absolute;
+	z-index: 900;
+	left: 180px;
+	top: 357px;
+}
+
+#enrollDevotee {
+	height: 365px;
+	width: 774px;
+}
+
+#PPDevoteeSearchlabel {
+	color: #63c2df;
+	font-size: 12pt;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: absolute;
+	z-index: 900;
+	height: 1px;
+	left: 9px;
+	top: 47.21875px;
+	width: 180px;
+}
+
+#widget_PPDevoteeNameTextBox {
+	width: 200px;
+	height: 20px;
+	position: absolute;
+	z-index: 900;
+	left: 186px;
+	top: 81.21875px;
+}
+
+#PPProgramNamelabel {
+	color: #63c2df;
+	font-size: 12pt;
+	margin-top: auto;
+	width: 120px;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: absolute;
+	z-index: 900;
+	height: 2px;
+	left: 9px;
+	top: 267.5px;
+}
+
+#widget_PPEnrolementDateSelect {
+	position: absolute;
+	z-index: 900;
+	left: 180px;
+	top: 322.6875px;
+}
+
+#PPEnrolementDatelabel {
+	color: #63c2df;
+	font-size: 12pt;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	width: 130px;
+	position: absolute;
+	z-index: 900;
+	left: 9px;
+	top: 298.6875px;
+	height: 2px;
+}
+
+.PPEnrollDevoteeSubmitClass {
+	position: absolute;
+	z-index: 900;
+	left: 180px;
+	top: 346px;
+}
+
+#PAProgramNamelabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	width: 120px;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: relative;
+}
+
+#PAProgramDatelabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	width: 130px;
+	position: absolute;
+	z-index: 900;
+	left: 12.5px;
+	top: 268px;
+}
+
+
+#widget_PAprogramDateSelect {
+	position: absolute;
+	z-index: 900;
+	left: 179.98589992523193px;
+	top: 288px;
+}
+
+.PAProgramAttendanceSubmitClass {
+	position: absolute;
+	z-index: 900;
+	left: 179.984375px;
+	top: 323px;
+}
+
+#DIDevoteeNameLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	width: 120px;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: relative;
+}
+
+#DIDevoteeDobLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	width: 120px;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: absolute;
+	z-index: 900;
+	left: 9px;
+	top: 135.21875px;
+}
+
+#DIDevoteeInitiatedNameLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	width: 160px;
+	position: absolute;
+	z-index: 900;
+	left: 9px;
+	top: 98.21875px;
+}
+
+#DIDevoteeMobileNoLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	width: 170px;
+	position: absolute;
+	z-index: 900;
+	left: 9px;
+	top: 175.21875px;
+}
+
+#DIDevoteeAltMobileNoLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: absolute;
+	z-index: 900;
+	width: 150px;
+	left: 9px;
+	top: 221px;
+}
+
+#DIDevoteeIntroDateLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	width: 170px;
+	position: absolute;
+	z-index: 900;
+	left: 9px;
+	top: 306.65625px;
+}
+
+#DIDevoteeAddressLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	width: 170px;
+	position: absolute;
+	z-index: 900;
+	left: 9px;
+	top: 264.65625px;
+}
+
+#DIDevoteeSikshaLevelLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: absolute;
+	z-index: 900;
+	left: 9px;
+	top: 380.21875px;
+	width: 150px;
+}
+
+#widget_DIDevoteeNameTextBox {
+	width: 200px;
+	height: 20px;
+	position: absolute;
+	z-index: 900;
+	left: 180px;
+	top: 78.21875px;
+}
+
+#widget_DIDevoteeInitiatedNameTextBox {
+	width: 200px;
+	height: 20px;
+	position: absolute;
+	z-index: 900;
+	left: 180px;
+	top: 120.21875px;
+}
+
+#widget_DIDevoteeDobSelect {
+	position: absolute;
+	z-index: 900;
+	left: 180px;
+	top: 158.21875px;
+}
+
+#widget_DIDevoteeMobileNoTextBox {
+	width: 200px;
+	height: 20px;
+	position: absolute;
+	z-index: 900;
+	left: 179px;
+	top: 195px;
+}
+
+#widget_DIDevoteeAltMobileNoTextBox {
+	width: 200px;
+	height: 20px;
+	position: absolute;
+	z-index: 900;
+	left: 180px;
+	top: 240px;
+}
+
+#widget_DIDevoteeAddressTextArea {
+	width: 200px;
+	position: absolute;
+	z-index: 900;
+	height: 35px;
+	left: 180px;
+	top: 280px;
+}
+
+#widget_DIDevoteeIntroDateSelect {
+	position: absolute;
+	z-index: 900;
+	left: 180px;
+	top: 328.65625px;
+}
+
+#widget_DIDevoteeEmailIdTextArea {
+	width: 200px;
+	height: 20px;
+	position: absolute;
+	z-index: 900;
+	left: 180px;
+	top: 364.65625px;
+}
+
+#isMentorLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	position: absolute;
+	z-index: 900;
+	width: 210px;
+	left: 35px;
+	top: 425px;
+}
+
+.isDevoteeMentorCheckBoxClass {
+	position: absolute;
+	z-index: 900;
+	left: 9px;
+	top: 446px;
+}
+
+.DIDevoteeAddSubmitClass {
+	position: absolute;
+	z-index: 900;
+	left: 292px;
+	top: 442px;
+}
+
+#DIDevoteeEmailIdLabel {
+	color: #63c2df;
+	font-size: 12pt;
+	height: 4px;
+	margin-top: auto;
+	padding-right: 10px;
+	padding-top: 20px;
+	width: 170px;
+	position: absolute;
+	z-index: 900;
+	left: 9px;
+	top: 347px;
+} 

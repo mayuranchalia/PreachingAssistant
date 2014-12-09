@@ -33,23 +33,26 @@ require([
 <link rel="stylesheet" href="lib/dojo/dojox/grid/resources/claroGrid.css">
 <link rel="stylesheet" href="lib/dojox/grid/enhanced/resources/claro/EnhancedGrid.css">
 <link rel="stylesheet" href="lib/dojox/grid/enhanced/resources/EnhancedGrid_rtl.css">
-<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="style/app.css">
+<link rel="stylesheet" href="style/lama.css">
 <style>@import "themes/claro/document.css";@import "themes/claro/claro.css";@import "lib/dojo/gridx/resources/claro/Gridx.css";@import "lib/dojo/gridx/resources/claro/Gridx_rtl.css";
 </style>
 <script type="text/javascript" src="app.js"></script>
 </head>
-<body data-maq-flow-layout="true" data-maq-comptype="desktop" class="claro" data-maq-ws="collapse" id="loading-mask" data-maq-appstates="{}">
+<body background="images/Glowing_Background.jpg" data-maq-flow-layout="true" data-maq-comptype="desktop" class="claro" data-maq-ws="collapse" id="loading-mask" data-maq-appstates="{}">
+<div id="header" class="lamaHeader">ISKCON Preaching Assistant</div>
 <div style="display: none" id="hideAll">&nbsp;</div>
 <script type="text/javascript">
    document.getElementById("hideAll").style.display = "block";
  </script> 
-<span data-dojo-type="dijit/layout/TabContainer" id="tabcontainer" tabStrip="false" persist="false" controllerWidget="dijit.layout.TabController" style="border-width: 1px; min-width: 1em; min-height: 1em; height: 637px; width: 817px; margin-right: 10px; left: 10px; margin-left: 10px;">
+<span data-dojo-type="dijit/layout/TabContainer" id="tabcontainer" tabStrip="false" persist="false" controllerWidget="dijit.layout.TabController" >
 <div data-dojo-type="dijit/layout/ContentPane" id="program" title="PROGRAM" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" selected="true" closable="false">
-<span data-dojo-type="dijit/layout/AccordionContainer" id="programAccordian" duration="500" persist="false" style="min-width: 1em; min-height: 1em; height: 100%; width: 898px;">
+<span data-dojo-type="dijit/layout/AccordionContainer" id="programAccordian" duration="500" persist="false">
 <div data-dojo-type="dijit/layout/ContentPane" id="programType" title="ADD PROGRAM TYPE" extractContent="false" preventCache="true" preload="false" refreshOnShow="false" doLayout="true" selected="true" closable="false">
-  <h1 id="addProgramTypeHeader" class="typeHeader">
-    ADD NEW PROGRAM TYPE</h1>
+ 
   <div id="addNewProgramType">
+   <h1 id="addProgramTypeHeader" class="typeHeader">
+    ADD NEW PROGRAM TYPE</h1>
     <p id="PTprogramTypelabel">
       Program Type :</p>
     <p id="PTprogramDescriptionLabel">
@@ -196,7 +199,13 @@ require([
     </div>
   </div>
   </span></div>
+  
  </span>
+<div>
+<p style="font-family:sans-serif;text-align:center;font-size:15px;color:#63c2df;">Your feed back is valuable to us, please mail your suggestions, comments or complaints to 
+<a href="mailto:preaching@iskcon.com">Temple Community</a>
+</p>
+</div>
  </body>
 
 </html>
