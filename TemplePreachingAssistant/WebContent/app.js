@@ -320,6 +320,34 @@ require(["dojo/ready",
 							
 						});
  	        });
+    	 
+    	 on(smsSubmit, "click", 
+  	            function(event) {
+    		 alert("mayur")
+     		 		var smsGrid = registry.byId("smsGrid"); 
+     		 		var items = smsGrid.selection.getSelected();
+     	          	var mobileNos = dojo.map(items, function(item){
+     	   			return smsGrid.store.getValue(item, "mobile");
+     	             		}, smsGrid);
+     	          	mobileNos =mobileNos.join(",");
+     		 		var id = dojo.map(items, function(item){
+     		 			return smsGrid.store.getValue(item, "id");
+     		 		}, smsGrid);
+  	               var smsProgramNameSelect = registry.byId("smsProgramNameSelect").get("value");
+  	               var smsTextArea = registry.byId("smsTextArea").get("value");
+  	               var url = service_URL+'smsService/sendSMS?programID='+smsProgramNameSelect+'&smsText='+smsTextArea
+  	               +'&mobileNos='+mobileNos;
+  	               alert(url);
+  	               xhr(url,{
+ 							handelAs:"application/json"
+ 						}).then(function(data){
+ 							dom.byId("sendSMSSuccessResponse").innerHTML=data;
+ 						},function(error){
+ 							alert(error.response.text);
+ 							//dom.byId("enrollDevoteeErrorResponse").innerHTML=error.response.text;
+ 							
+ 						});
+  	        });
 
     	 //Add Devotee
     	 var DIDevoteeAddSubmit = registry.byId("DIDevoteeAddSubmit");

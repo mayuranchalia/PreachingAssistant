@@ -15,7 +15,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.codehaus.jettison.json.JSONArray;
+import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
+import org.eclipse.jetty.util.ajax.JSON;
 
 import com.temple.repository.IRepositoryEntityTypes;
 import com.temple.repository.IRepositroyCommunication;
@@ -206,5 +208,22 @@ public class DevoteeService {
 				}
 		}
 
+	}
+	
+	public static void main(String[] args) {
+		DevoteeService service = new DevoteeService();
+		Response response=service.getProgramParticipants("9986");
+		//Object array = JSON.parse((String) response.getEntity());
+		JSONArray data;
+		try {
+			data = new JSONArray(response.getEntity().toString());
+			JSONObject object = new JSONObject(data.get(0).toString());
+			System.out.println(object.get("mobile"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		
 	}
 }

@@ -19,4 +19,8 @@ public interface IConfiguration {
 			.getConfigProperties().getProperty("mysql.user", "root");
 	public static final String MYSQL_PASSWORD = LoadConfiguration.getInstance()
 			.getConfigProperties().getProperty("mysql.password", "ADmin123");
+	
+	public static final String SMS_GATEWAY_KEY= LoadConfiguration.getInstance()
+			.getConfigProperties().getProperty("smsgateway.key", "f30eytu3h3003a75a037s8097m9r8e");
+	
 }
