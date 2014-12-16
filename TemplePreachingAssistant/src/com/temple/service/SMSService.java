@@ -165,12 +165,13 @@ public class SMSService {
 	                   if ("msgid".equals(node.getNodeName())) {
 	                	   logger.debug("MSG ID#: "+node.getTextContent());	                	   
 	                	   deliveryStatus = getDilevryStatus(node.getTextContent());
+	                	   deliveryStatus = deliveryStatus.substring(deliveryStatus.lastIndexOf(" ")+1);
 	                	   logger.debug("Delivery Status#: "+deliveryStatus);
 	                	   response=addDevoteeSMSStatus(devoteeID, smsID, deliveryStatus);
 	       			   }
 			}
 			if(response.getStatus()==200){
-				return Response.ok().entity("Successfully generated SMS Status for SMS ID"+smsID).build();
+				return Response.ok().entity("Successfully generated SMS Status for SMS ID: "+smsID).build();
 			}else{
 				logger.error("Error occured while generating SMS Status for SMS ID"+smsID);
 			return Response.serverError().entity("Error occured while generating SMS Status for SMS ID"+smsID).build();
