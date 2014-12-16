@@ -13,6 +13,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apache.log4j.Logger;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONObject;
 
@@ -28,19 +29,21 @@ import com.temple.util.TempleUtility;
 
 @Path("/programService")
 public class ProgramService {
-
+	final static Logger logger = Logger.getLogger(ProgramService.class);
 	@GET
 	@Path("/addNewProgramType")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addNewProgramType(
 			@QueryParam("programType") String programType,
 			@QueryParam("programDesc") String programDesc) {
+		logger.debug("Calling addNewProgramType");
 		IRepositroyCommunication repository = null;
 		PreparedStatement statement = null;
 		try {
 			repository = RepositoryCommunicationFactory.newInstance();
 			String SQL = "Insert into " + IRepositoryEntityTypes.PROGRAM_TYPE
 					+ "(PTProgramType,PTProgramDesc)" + " values(?,?)";
+			logger.debug(SQL);
 			statement = repository.getPreparedStatement(SQL);
 			statement.setString(1, programType);
 			statement.setString(2, programDesc);
@@ -50,25 +53,26 @@ public class ProgramService {
 						.entity("sucessfully saved the "
 								+ "program type to repository").build();
 			} else {
+				logger.error("Failed to save the "
+								+ "program type to repository");
 				return Response
 						.serverError()
 						.entity("Failed to save the "
 								+ "program type to repository").build();
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Problem Occured atserver side", e);
 			return Response
 					.serverError()
 					.entity("Problem Occured at "
 							+ "server side\n.Reason:"
-							+ e.getMessage()
-							+ "\nDetails:"+e.getMessage()).build();
+							+ e.getMessage()).build();
 		} finally {
 			if (repository != null)
 				try {
 					repository.close();
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.error("Problem Occured atserver side", e);
 					return Response
 							.serverError()
 							.entity("Problem Occured at "
@@ -82,11 +86,13 @@ public class ProgramService {
 	@Path("/getProgramTypes")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getProgramType() {
+		logger.debug("Calling getProgramType");
 		IRepositroyCommunication repository = null;
 		PreparedStatement statement = null;
 		try {
 			repository = RepositoryCommunicationFactory.newInstance();
 			String SQL = "SELECT PTProgramType from " + IRepositoryEntityTypes.PROGRAM_TYPE;
+			logger.debug(SQL);
 			statement = repository.getPreparedStatement(SQL);
 			ResultSet result=statement.executeQuery();
 			
@@ -99,19 +105,18 @@ public class ProgramService {
 			}
 			return Response.ok().entity(array.toString()).build();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Problem Occured atserver side", e);
 			return Response
 					.serverError()
 					.entity("Problem Occured at "
 							+ "server side\n.Reason:"
-							+ e.getMessage()
-							+ "\nDetails:"+e.getMessage()).build();
+							+ e.getMessage()).build();
 		} finally {
 			if (repository != null)
 				try {
 					repository.close();
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.error("Problem Occured atserver side", e);
 					return Response
 							.serverError()
 							.entity("Problem Occured at "
@@ -125,11 +130,13 @@ public class ProgramService {
 	@Path("/getProgramNames")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getProgramNames() {
+		logger.debug("Calling getProgramNames");
 		IRepositroyCommunication repository = null;
 		PreparedStatement statement = null;
 		try {
 			repository = RepositoryCommunicationFactory.newInstance();
 			String SQL = "SELECT PMProgramID,PMProgramName from " + IRepositoryEntityTypes.PROGRAM_MASTER;
+			logger.debug(SQL);
 			statement = repository.getPreparedStatement(SQL);
 			ResultSet result=statement.executeQuery();
 			
@@ -142,19 +149,18 @@ public class ProgramService {
 			}
 			return Response.ok().entity(array.toString()).build();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Problem Occured at server side", e);
 			return Response
 					.serverError()
 					.entity("Problem Occured at "
 							+ "server side\n.Reason:"
-							+ e.getMessage()
-							+ "\nDetails:"+e.getMessage()).build();
+							+ e.getMessage()).build();
 		} finally {
 			if (repository != null)
 				try {
 					repository.close();
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.error("Problem Occured at server side", e);
 					return Response
 							.serverError()
 							.entity("Problem Occured at "
@@ -168,11 +174,13 @@ public class ProgramService {
 	@Path("/getMentors")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getMentors() {
+		logger.debug("Calling getMentors");
 		IRepositroyCommunication repository = null;
 		PreparedStatement statement = null;
 		try {
 			repository = RepositoryCommunicationFactory.newInstance();
 			String SQL = "SELECT MIMentorID,MIMentorInitiatedName from " + IRepositoryEntityTypes.MENTOR_INFO;
+			logger.debug(SQL);
 			statement = repository.getPreparedStatement(SQL);
 			ResultSet result=statement.executeQuery();
 			
@@ -185,19 +193,18 @@ public class ProgramService {
 			}
 			return Response.ok().entity(array.toString()).build();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Problem Occured at server side", e);
 			return Response
 					.serverError()
 					.entity("Problem Occured at "
 							+ "server side\n.Reason:"
-							+ e.getMessage()
-							+ "\nDetails:"+e.getMessage()).build();
+							+ e.getMessage()).build();
 		} finally {
 			if (repository != null)
 				try {
 					repository.close();
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.error("Problem Occured at server side", e);
 					return Response
 							.serverError()
 							.entity("Problem Occured at "
@@ -217,6 +224,7 @@ public class ProgramService {
 			@QueryParam("mentorId") int mentorId,
 			@QueryParam("assmentorId") int assmentorId,
 			@QueryParam("programName") String programName) {
+		logger.debug("Calling addNewProgramMaster");
 		IRepositroyCommunication repository = null;
 		PreparedStatement statement = null;
 		try {
@@ -226,7 +234,7 @@ public class ProgramService {
 					+ "(PMProgramType,PMProgramDescription"
 					+ ",PMProgramInterval,PMMentorID,PMAsstMentorID,PMProgramName)"
 					+ " values(?,?,?,?,?,?)";
-
+			logger.debug(SQL);
 			statement = repository.getPreparedStatement(SQL,
 					Statement.RETURN_GENERATED_KEYS);
 			statement.setString(1, programType);
@@ -245,26 +253,27 @@ public class ProgramService {
 								+ "program master with ID= " + autoGeneratedID
 								+ " to repository").build();
 			} else {
+				logger.error("Failed to save the "
+								+ "program master to repository");
 				return Response
 						.serverError()
 						.entity("Failed to save the "
 								+ "program master to repository").build();
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Problem Occured at server side", e);
 			return Response
 					.serverError()
 					.entity("Problem Occured at "
 							+ "server side\n.Reason:"
-							+ e.getMessage()
-							+ "\nDetails:"+e.getMessage()).build();
+							+ e.getMessage()).build();
 		} finally {
 			if (repository != null)
 				try {
 					statement.close();
 					repository.close();
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.error("Problem Occured at server side", e);
 					return Response
 							.serverError()
 							.entity("Problem Occured at "
@@ -282,6 +291,7 @@ public class ProgramService {
 			@QueryParam("enrolementDate") String enrolementDate,
 			@QueryParam("devoteeId") int devoteeId,
 			@QueryParam("devoteeName") String devoteeName) {
+		logger.debug("Calling programParticipation");
 		IRepositroyCommunication repository = null;
 		PreparedStatement statement = null;
 		Date enrolement = null;
@@ -293,6 +303,7 @@ public class ProgramService {
 					+ IRepositoryEntityTypes.PROGRAM_PARTICIPATION
 					+ " (PPDevoteeID,PPProgramID,PPEnrolementDate,PPDevoteeName)"
 					+ " values(?,?,?,?)";
+			logger.debug(SQL);
 			try {
 				enrolement = TempleUtility.getSQLDateFromString(enrolementDate);
 			} catch (ParseException e) {
@@ -313,6 +324,8 @@ public class ProgramService {
 								+ "program participation to repository")
 						.build();
 			} else {
+				logger.error("Failed to save the "
+								+ "program participation to repository");
 				return Response
 						.serverError()
 						.entity("Failed to save the "
@@ -320,7 +333,7 @@ public class ProgramService {
 						.build();
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Problem Occured at server side", e);
 			return Response
 					.serverError()
 					.entity("Problem Occured at "
@@ -332,7 +345,7 @@ public class ProgramService {
 					statement.close();
 					repository.close();
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.error("Problem Occured at server side", e);
 					return Response
 							.serverError()
 							.entity("Problem Occured at "
@@ -345,11 +358,13 @@ public class ProgramService {
 	@Path("/getProgramParticipants")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getProgramParticipants(@QueryParam("programID") int programID) {
+		logger.debug("Calling getProgramParticipants");
 		IRepositroyCommunication repository = null;
 		PreparedStatement statement = null;
 		try {
 			repository = RepositoryCommunicationFactory.newInstance();
 			String SQL = "select PROGRAM_PARTICIPATION.PPDevoteeID , DEVOTEE_INFO.DILegalName, DEVOTEE_INFO.DIInitiatedName , DEVOTEE_INFO.DISmsPhone,DEVOTEE_INFO.DIArea from " +IRepositoryEntityTypes.DEVOTEE_INFO+"," +IRepositoryEntityTypes.PROGRAM_PARTICIPATION +" where PROGRAM_PARTICIPATION.PPDevoteeID=DEVOTEE_INFO.DIDevoteeID and PROGRAM_PARTICIPATION.PPProgramID=?" ;
+			logger.debug(SQL);
 			statement = repository.getPreparedStatement(SQL);
 			statement.setInt(1, programID);
 			ResultSet result=statement.executeQuery();
@@ -366,7 +381,7 @@ public class ProgramService {
 			}
 			return Response.ok().entity(array.toString()).build();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Problem Occured at server side", e);
 			return Response
 					.serverError()
 					.entity("Problem Occured at "
@@ -378,7 +393,7 @@ public class ProgramService {
 				try {
 					repository.close();
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.error("Problem Occured at server side", e);
 					return Response
 							.serverError()
 							.entity("Problem Occured at "
@@ -388,6 +403,7 @@ public class ProgramService {
 
 	}
 	private int getDevoteeId(String mobileNo)throws Exception{
+		logger.debug("Calling getDevoteeId");
 		IRepositroyCommunication repository = null;
 		PreparedStatement statement = null;
 		int devoteeId=0;
@@ -422,6 +438,7 @@ public class ProgramService {
 			@QueryParam("programId") int programId,
 			@QueryParam("devoteeIds") String devoteeIds,
 			@QueryParam("programdate") String programdate) {
+		logger.debug("Calling programAttendance");
 		IRepositroyCommunication repository = null;
 		PreparedStatement statement = null;
 		Date date = null;
@@ -432,9 +449,11 @@ public class ProgramService {
 					+ IRepositoryEntityTypes.PROGRAM_ATTENDANCE
 					+ "(PAProgramID,PADevoteeID,PAProgramDate)"
 					+ " values(?,?,?)";
+			logger.debug(SQL);
 			try {
 				date = TempleUtility.getSQLDateFromString(programdate);
 			} catch (ParseException e) {
+				logger.error("Invalid date format provided for program date.");
 				return Response
 						.serverError()
 						.entity("Invalid date format provided for program date.")
@@ -455,13 +474,16 @@ public class ProgramService {
 						.entity("sucessfully saved the "
 								+ "program attendance to repository").build();
 			} else {
+				logger.error("Failed to save the "
+								+ "program attendance to repository");
 				return Response
 						.serverError()
 						.entity("Failed to save the "
 								+ "program attendance to repository").build();
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Problem Occured at "
+							+ "server side", e);
 			return Response
 					.serverError()
 					.entity("Problem Occured at "
@@ -473,7 +495,8 @@ public class ProgramService {
 					statement.close();
 					repository.close();
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.error("Problem Occured at "
+							+ "server side", e);
 					return Response
 							.serverError()
 							.entity("Problem Occured at "
